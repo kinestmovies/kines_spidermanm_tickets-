@@ -1,48 +1,13 @@
 <!DOCTYPE html><html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ticket Verification</title><style>
-body{
-    font-family:Arial,sans-serif;
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding-top:80px;
-}
-
-.valid{
-    color:#22c55e;
-    font-size:40px;
-}
-
-.invalid{
-    color:#ef4444;
-    font-size:40px;
-}
-</style></head><body><h1>🕷️ Kines Ticket Verification</h1><h2 id="ticket"></h2>
-<p id="status"></p><script>
+<title>Verify Ticket</title>
+</head>
+<body><h1>Kines Ticket Verification</h1><p id="demo">Loading...</p><script>
 const params = new URLSearchParams(window.location.search);
 const ticket = params.get("id");
 
-const validTickets = [
-"SPID001",
-"SPID002",
-"SPID003",
-"SPID004",
-"SPID005"
-];
-
-document.getElementById("ticket").innerText =
-"Ticket ID: " + ticket;
-
-if(validTickets.includes(ticket)){
-    document.getElementById("status").innerHTML = "✅ VALID";
-    document.getElementById("status").className = "valid";
-}
-else{
-    document.getElementById("status").innerHTML = "❌ INVALID";
-    document.getElementById("status").className = "invalid";
-}
+document.getElementById("demo").innerHTML =
+"Ticket received: " + ticket;
 </script></body>
 </html>
