@@ -2,48 +2,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kines Spider-Man Tickets</title><style>
+<title>Ticket Verification</title><style>
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#0f172a;
-color:white;
-text-align:center;
+    font-family:Arial,sans-serif;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding-top:80px;
 }
 
-.hero{
-padding:80px 20px;
+.valid{
+    color:#22c55e;
+    font-size:40px;
 }
 
-h1{
-font-size:3rem;
-color:#e11d48;
+.invalid{
+    color:#ef4444;
+    font-size:40px;
 }
+</style></head><body><h1>🕷️ Kines Ticket Verification</h1><h2 id="ticket"></h2>
+<p id="status"></p><script>
+const params = new URLSearchParams(window.location.search);
+const ticket = params.get("id");
 
-.ticket{
-background:#1e293b;
-padding:20px;
-max-width:500px;
-margin:auto;
-border-radius:20px;
-}
+const validTickets = [
+"SPID001",
+"SPID002",
+"SPID003",
+"SPID004",
+"SPID005"
+];
 
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 24px;
-background:#dc2626;
-color:white;
-text-decoration:none;
-border-radius:10px;
+document.getElementById("ticket").innerText =
+"Ticket ID: " + ticket;
+
+if(validTickets.includes(ticket)){
+    document.getElementById("status").innerHTML = "✅ VALID";
+    document.getElementById("status").className = "valid";
 }
-</style></head><body><div class="hero">
-<h1>🕷️ KINES MOVIES</h1><div class="ticket">
-<h2>Spider-Man: Brand New Day</h2>
-<p>1 August</p>
-<p>Kines Venue</p>
-  <a class="btn" href="verify.html?id=SPID001">
-  Verify Sample Ticket
-  </a>
-</div></div></body>
+else{
+    document.getElementById("status").innerHTML = "❌ INVALID";
+    document.getElementById("status").className = "invalid";
+}
+</script></body>
 </html>
